@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build tailwindcss build src/styles.css -o dist/styles.css",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.92.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "react": "^18.3.1",
@@ -17,6 +18,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@tanstack/router-devtools": "^1.92.3",
+    "@tanstack/router-plugin": "^1.91.1",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
