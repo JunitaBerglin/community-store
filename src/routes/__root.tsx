@@ -7,13 +7,15 @@ export const Route = createRootRoute({
       <nav className="bg-gray-800 text-white py-4 shadow-md">
         <div className="container mx-auto flex justify-center items-center gap-6">
           <Link
-            // to="/"
+            to="/"
             activeProps={{ className: "font-bold" }}
-            // activeOptions={{ exact: true }}
+            activeOptions={{ exact: true }}
           >
-            Home
+            Welcome
           </Link>
-          <Link to="/about">About</Link>
+          <Link to="/createAccount">Create Account</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/myAccount">My Account</Link>
           <Link
             // to="/searches/$searchid"
             // params={{ searchid: "" }}
