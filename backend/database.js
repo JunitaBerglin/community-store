@@ -1,9 +1,9 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient } from "mongodb";
 
-const uri = "mongodb://localhost:5173";
+const uri = "mongodb://localhost:27017/community-store";
 const client = new MongoClient(uri);
 
-let db: Db;
+let db;
 
 export async function connectToDatabase() {
   try {
@@ -19,7 +19,7 @@ export async function connectToDatabase() {
   }
 }
 
-export async function getCollection(collectionName: string) {
+export async function getCollection(collectionName) {
   const database = await connectToDatabase();
   return database.collection(collectionName);
 }
