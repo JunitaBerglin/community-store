@@ -1,6 +1,10 @@
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createRoute, useRouter } from "@tanstack/react-router";
+import React from "react";
+import { rootRoute } from "./__root"; // Updated import
 
-export const Route = createFileRoute("/")({
+export const homeRoute = createRoute({
+  getParentRoute: () => rootRoute, // Reference the renamed root route
+  path: "/",
   component: RouteComponent,
 });
 
@@ -9,8 +13,8 @@ function RouteComponent() {
 
   return (
     <div>
-      <h1>Hello and welcome to your community store! "/"!</h1>
-      <h2>Start by create you'r account</h2>
+      <h1>Hello and welcome to your community store!</h1>
+      <h2>Start by creating your account</h2>
       <button
         onClick={() => {
           router.navigate({
@@ -18,7 +22,7 @@ function RouteComponent() {
           });
         }}
       >
-        create account
+        Create Account
       </button>
     </div>
   );

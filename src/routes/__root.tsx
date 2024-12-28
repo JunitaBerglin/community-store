@@ -1,7 +1,8 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import React from "react";
 
-export const Route = createRootRoute({
+export const rootRoute = createRootRoute({
   component: () => (
     <>
       <nav className="bg-gray-800 text-white py-4 shadow-md">
@@ -17,10 +18,9 @@ export const Route = createRootRoute({
           <Link to="/login">Login</Link>
           <Link to="/myAccount">My Account</Link>
           <Link
-            // to="/searches/$searchid"
-            // params={{ searchid: "" }}
+            to="/searches/$searchid"
+            params={{ searchid: "" }}
             activeProps={{ className: "font-bold" }}
-            // search={{ page: 1, filter: "", sort: "newest" }}
           >
             Search
           </Link>

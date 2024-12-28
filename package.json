@@ -1,18 +1,9 @@
 {
-  "name": "community-store",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build tailwindcss build src/styles.css -o dist/styles.css",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "start:backend": "node backend/server.js"
-  },
   "dependencies": {
     "@tanstack/react-router": "^1.92.3",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.2",
@@ -21,7 +12,8 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.2",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -36,9 +28,19 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.13.0",
+    "nodemon": "^3.1.9",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.1",
     "vite": "^6.0.3"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start:backend": "node backend/server.js",
+    "dev:backend": "nodemon backend/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   }
 }

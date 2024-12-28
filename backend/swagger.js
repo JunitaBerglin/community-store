@@ -11,7 +11,7 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:5000", // Update to your server URL
+                url: "http://localhost:5002", // Update to your server URL
             },
         ],
     },
