@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "@tanstack/react-router";
 
-function RouteComponent() {
+function HomeComponent() {
   const router = useRouter();
 
   return (
@@ -20,4 +20,4 @@ function RouteComponent() {
     </div>
   );
 }
-export { RouteComponent };
+export { HomeComponent };

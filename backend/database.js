@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const uri = "mongodb://localhost:27017/community-store";
+const uri = "mongodb://127.0.0.1:27017/community-store";
 const client = new MongoClient(uri);
 
 let db;
@@ -8,6 +8,7 @@ let db;
 export async function connectToDatabase() {
   try {
     if (!db) {
+      console.log("Connecting to MongoDB...");
       await client.connect();
       db = client.db("community-store");
       console.log("Connected to MongoDB!");

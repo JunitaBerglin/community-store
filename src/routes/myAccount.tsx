@@ -1,13 +1,9 @@
-// import { createFileRoute } from "@tanstack/react-router";
-// import React from "react";
-// import { rootRoute } from "./__root";
+import { createRoute } from "@tanstack/react-router";
+import { rootRoute } from "./__root";
+import { MyAccount } from "../components/myAccount";
 
-// export const myAccountRoute = createFileRoute({
-//   getParentRoute: () => rootRoute,
-//   path: "/myAccount{?query*}",
-//   component: RouteComponent,
-// });
-
-// function RouteComponent() {
-//   return <div>Hello "/myAccount"!</div>;
-// }
+export const myAccountRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/myAccount{?query*}",
+  component: MyAccount,
+});

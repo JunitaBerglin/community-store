@@ -11,19 +11,44 @@ type FormValues = {
   avatar: FileList;
 };
 
-function RouteCreateAccount() {
+function CreateAccount() {
   const router = useRouter();
   const { register, handleSubmit } = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Form Data Submitted:", data);
-    router.navigate({ to: "/login" });
+  const onSubmit = async (data: FormValues) => {
+    const requestData = {
+      name: data.user_name,
+      email: data.email,
+      address: data.postal_code,
+      postalCode: data.postal_code,
+      profileImageUrl: data.avatar?.[0]?.name || null,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5002/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to register user");
+      }
+
+      const responseData = await response.json();
+      console.log("Registration successful:", responseData);
+
+      router.navigate({ to: "/login" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
-    <main>
+    <main className="flex items-center justify-center h-screen bg-gray-100">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Hello "/createAccount"!</h1>
         <div>
           <section className="rounded-md p-2 bg-white">
             <div className="flex items-center justify-center my-3">
@@ -124,4 +149,4 @@ function RouteCreateAccount() {
     </main>
   );
 }
-export { RouteCreateAccount };
+export { CreateAccount };
